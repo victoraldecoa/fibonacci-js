@@ -5,19 +5,22 @@
             "name": "client",
             "image": "valdeco/fibonacci-js-react",
             "hostname": "client",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "api",
             "image": "valdeco/fibonacci-js-api",
             "hostname": "api",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "worker",
             "image": "valdeco/fibonacci-js-worker",
             "hostname": "worker",
-            "essential": false
+            "essential": false,
+            "memory": 128
         },
         {
             "name": "nginx",
@@ -32,7 +35,8 @@
             "links": [
                 "client",
                 "api"
-            ]
+            ],
+            "memory": 128
         }
     ]
 }
