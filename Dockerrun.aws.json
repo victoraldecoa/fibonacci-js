@@ -1,0 +1,38 @@
+{
+    "AWSEBDockerRunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "valdeco/fibonacci-js-react",
+            "hostname": "client",
+            "essential": false
+        },
+        {
+            "name": "api",
+            "image": "valdeco/fibonacci-js-api",
+            "hostname": "api",
+            "essential": false
+        },
+        {
+            "name": "worker",
+            "image": "valdeco/fibonacci-js-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+        {
+            "name": "nginx",
+            "image": "valdeco/fibonacci-js-router",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": [
+                "client",
+                "api"
+            ]
+        }
+    ]
+}

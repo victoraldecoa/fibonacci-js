@@ -18,3 +18,15 @@ after_success:
     - docker push valdeco/fibonacci-js-router
     - docker push valdeco/fibonacci-js-api
     - docker push valdeco/fibonacci-js-worker
+deploy:
+    # edge: true
+    provider: elasticbeanstalk
+    region: us-east-2
+    app: fibonacci-js
+    env: FibonacciJs-env
+    bucket_name: elasticbeanstalk-us-east-2-518723902687
+    bucket_path: fibonacci-js
+    on:
+        branch: master
+    access_key_id: $AWS_ACCESS_KEY
+    secret_access_key: $AWS_SECRET_KEY
